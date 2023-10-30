@@ -5,18 +5,18 @@ import (
 )
 
 // board represents the state of a turn of the game on a 3 x 3 grid
-type grid [9]byte
+type Grid [9]byte
 
 // a turn has a board and status string which will be one of these strings XWIN,OWIN,DRAW,PLAY
-type turn struct {
-	board  grid
+type Turn struct {
+	board  Grid
 	status string
 }
-type game []turn
+type Game []Turn
 
 // This makes the board type conform to the Stringer interface so it can be used with fmt.
 
-func (board grid) String() string {
+func (board Grid) String() string {
 
 	l1 := string(board[0]) + string(board[1]) + string(board[2])
 	l2 := string(board[3]) + string(board[4]) + string(board[5])
@@ -26,7 +26,7 @@ func (board grid) String() string {
 
 // This makes the game type conform to the Stringer interface so it can be used with fmt.
 // It loops over the game slice building three strings from the contents of each board.
-func (g game) String() string {
+func (g Game) String() string {
 	var l1, l2, l3, l4 string
 
 	for i, _ := range g {
@@ -42,27 +42,28 @@ func main() {
 
 	// Here we are building a set of literally defined turns.
 
-	var t1 = turn{
-		board:  grid([]byte("X........")),
+	var t1 = Turn{
+		board:  Grid([]byte("X........")),
 		status: "PLAY",
 	}
-	var t2 = turn{
-		board:  grid([]byte("X.O......")),
+	var t2 = Turn{
+		board:  Grid([]byte("X.O......")),
 		status: "PLAY",
 	}
-	var t3 = turn{
-		board:  grid([]byte("X.OX.....")),
+	var t3 = Turn{
+		board:  Grid([]byte("X.OX.....")),
 		status: "PLAY",
 	}
-	var t4 = turn{
-		board:  grid([]byte("X.OXO....")),
+	var t4 = Turn{
+		board:  Grid([]byte("X.OXO....")),
 		status: "PLAY",
 	}
-	var t5 = turn{
-		board:  grid([]byte("X.OXO.X..")),
+	var t5 = Turn{
+		board:  Grid([]byte("X.OXO.X..")),
 		status: "XWIN",
 	}
-	var g game
+	var g Game
+
 	// Here we append all the turns into a game slice.
 
 	g = append(g, t1, t2, t3, t4, t5)
