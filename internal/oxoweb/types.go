@@ -5,7 +5,7 @@ type Grid [9]byte
 
 // a turn has a board and status string which will be one of these strings XWIN,OWIN,DRAW,PLAY
 type Turn struct {
-	board  Grid
-	status string
+	Board  Grid
+	Status string
 }
 type Game []Turn
