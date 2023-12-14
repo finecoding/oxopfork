@@ -14,3 +14,13 @@ type Turn struct {
 // a complete game has a minimum of 5 turns and a maximum of 9 turns
 // should I set a capacity for the slice?
 type Game []Turn
+
+func (board Grid) InPlay() ([]byte, bool) {
+	var spc []byte
+	for k, v := range board {
+		if v == 32 {
+			spc = append(spc, byte(k))
+		}
+	}
+	return spc, len(spc) != 0
+}

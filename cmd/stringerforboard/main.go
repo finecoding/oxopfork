@@ -2,23 +2,15 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/finecoding/oxopfork/oxo"
 )
-
-type grid [9]byte
-
-func (board grid) String() string {
-
-	l1 := string(board[0]) + string(board[1]) + string(board[2])
-	l2 := string(board[3]) + string(board[4]) + string(board[5])
-	l3 := string(board[6]) + string(board[7]) + string(board[8])
-	return fmt.Sprintf("\n%s\n%s\n%s\n\n", l1, l2, l3)
-}
 
 func main() {
 
 	fmt.Println("hi")
 
-	var board = grid([]byte("   OOOXXX"))
+	var board = oxo.Grid([]byte("   OOOXXX"))
 
 	//Here we have a 9 byte array created from a byte slice created by converting a string literal
 	//Note, I could have done this anonymously using the [9]byte([]byte("XXXOOOXXX")) instead of grid([]byte("XXXOOOXXX"))
