@@ -1,6 +1,6 @@
 // Data types go here as the need arises to define them.
 
-package oxocli
+package oxo
 
 // board represents the state of a turn of the game on a 3 x 3 grid
 type Grid [9]byte

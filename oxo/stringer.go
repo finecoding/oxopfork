@@ -1,4 +1,4 @@
-package oxocli
+package oxo
 
 import (
 	"fmt"
