@@ -1,3 +1,3 @@
 module github.com/finecoding/oxopfork
 
-go 1.21.3
+go 1.21.5
